@@ -1,0 +1,89 @@
+==> Using Node.js version 22.22.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Running build command 'npm install'...
+up to date, audited 115 packages in 897ms
+20 packages are looking for funding
+  run `npm fund` for details
+2 high severity vulnerabilities
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+Run `npm audit` for details.
+==> Uploading build...
+==> Uploaded in 3.1s. Compression took 10.0s
+==> Build successful 🎉
+==> Deploying...
+==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
+==> Running 'npm start'
+> naz-astroloji-api@1.0.0 start
+> node index.js
+🛡️  Güvenlik middleware'leri aktif
+✅ MongoDB bağlantısı başarılı!
+📦 Database: naz_dunyasi77
+🚀 ================================
+🚀 Server başlatıldı!
+🚀 http://localhost:3001
+🚀 Environment: development
+🚀 ================================
+🛡️  Güvenlik Özellikleri:
+   ✓ Helmet (Security Headers)
+   ✓ Rate Limiting
+   ✓ CORS Protection
+   ✓ XSS Protection
+   ✓ MongoDB Injection Protection
+   ✓ HPP Protection
+   ✓ Suspicious Activity Detection
+📌 Endpoints:
+   GET  /api/health
+   GET  /api/blog/posts
+   GET  /api/blog/posts/:id
+   POST /api/admin/login
+   GET  /api/admin/posts
+   POST /api/admin/posts
+   PUT  /api/admin/posts/:id
+   DELETE /api/admin/posts/:id
+   POST /api/admin/upload
+☁️  Cloudinary: Görsel yükleme aktif
+[08:23:26] HEAD /
+❌ Error: {
+  message: 'Endpoint bulunamadı: /',
+  statusCode: 404,
+  stack: 'Error: Endpoint bulunamadı: /\n' +
+    '    at notFoundHandler (file:///opt/render/project/src/server/middleware/errorHandler.js:15:17)\n' +
+    '    at Layer.handle [as handle_request] (/opt/render/project/src/server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/opt/render/project/src/server/node_modules/express/lib/router/index.js:328:13)\n' +
+    '    at /opt/render/project/src/server/node_modules/express/lib/router/index.js:286:9\n' +
+    '    at Function.process_params (/opt/render/project/src/server/node_modules/express/lib/router/index.js:346:12)\n' +
+    '    at next (/opt/render/project/src/server/node_modules/express/lib/router/index.js:280:10)\n' +
+Menu
+    '    at file:///opt/render/project/src/server/index.js:66:3\n' +
+    '    at Layer.handle [as handle_request] (/opt/render/project/src/server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/opt/render/project/src/server/node_modules/express/lib/router/index.js:328:13)\n' +
+    '    at /opt/render/project/src/server/node_modules/express/lib/router/index.js:286:9',
+  path: '/',
+  method: 'HEAD'
+}
+==> Your service is live 🎉
+[08:23:30] GET /
+❌ Error: {
+  message: 'Endpoint bulunamadı: /',
+  statusCode: 404,
+  stack: 'Error: Endpoint bulunamadı: /\n' +
+    '    at notFoundHandler (file:///opt/render/project/src/server/middleware/errorHandler.js:15:17)\n' +
+    '    at Layer.handle [as handle_request] (/opt/render/project/src/server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/opt/render/project/src/server/node_modules/express/lib/router/index.js:328:13)\n' +
+    '    at /opt/render/project/src/server/node_modules/express/lib/router/index.js:286:9\n' +
+    '    at Function.process_params (/opt/render/project/src/server/node_modules/express/lib/router/index.js:346:12)\n' +
+    '    at next (/opt/render/project/src/server/node_modules/express/lib/router/index.js:280:10)\n' +
+    '    at file:///opt/render/project/src/server/index.js:66:3\n' +
+    '    at Layer.handle [as handle_request] (/opt/render/project/src/server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/opt/render/project/src/server/node_modules/express/lib/router/index.js:328:13)\n' +
+    '    at /opt/render/project/src/server/node_modules/express/lib/router/index.js:286:9',
+  path: '/',
+  method: 'GET'
+}
+==> 
+==> ///////////////////////////////////////////////////////////
+==> 
+==> Available at your primary URL https://nazdunyasi77.onrender.com
+==> 
+==> ///////////////////////////////////////////////////////////

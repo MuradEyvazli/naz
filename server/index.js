@@ -70,6 +70,11 @@ app.use((req, res, next) => {
 // Routes
 // ============================================
 
+// Root health check (Render için)
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', service: 'naz-astroloji-api' });
+});
+
 // Health check (rate limit yok)
 app.get('/api/health', (req, res) => {
   res.json({

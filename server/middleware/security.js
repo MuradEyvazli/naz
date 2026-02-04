@@ -195,9 +195,17 @@ export const corsOptions = {
       'http://localhost:5174',
       'http://localhost:3000',
       'http://localhost:3001',
-      // Production domain'leri buraya eklenecek
-      // 'https://yourdomain.com',
     ];
+
+    // Production domain'leri environment variable'dan al
+    if (process.env.FRONTEND_URL) {
+      allowedOrigins.push(process.env.FRONTEND_URL);
+    }
+
+    // Render.com domain'leri otomatik ekle
+    if (process.env.RENDER_EXTERNAL_URL) {
+      allowedOrigins.push(process.env.RENDER_EXTERNAL_URL);
+    }
 
     // Origin yoksa (Postman, curl, vb.) veya allowedOrigins'de varsa izin ver
     if (!origin || allowedOrigins.includes(origin)) {

@@ -1,8 +1,8 @@
 // API Client for Blog and Admin endpoints
 import { getToken } from './auth';
 
-// Local Express server URL
-const BASE_URL = 'http://localhost:3001/api';
+// API URL - production veya development
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 // API Response types
 export interface BlogPost {
@@ -76,7 +76,11 @@ const safeJsonParse = async (response: Response): Promise<any> => {
 export const getImageUrl = (imagePath: string): string => {
   if (!imagePath) return '';
   if (imagePath.startsWith('http')) return imagePath;
-  if (imagePath.startsWith('/uploads')) return `http://localhost:3001${imagePath}`;
+  if (imagePath.startsWith('/uploads')) {
+    const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    const serverBase = apiBase.replace('/api', '');
+    return `${serverBase}${imagePath}`;
+  }
   return imagePath;
 };
 
