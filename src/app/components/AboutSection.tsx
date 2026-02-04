@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Heart, Sparkles, Moon, Sun } from 'lucide-react';
 
 import { ImageWithFallback } from './ui/ImageWithFallback';
+import nazProfileImage from '@/assets/naz-profile.png';
 
 interface AboutSectionProps {
   onNavigate: (section: string) => void;
@@ -89,7 +90,7 @@ export function AboutSection({ onNavigate }: AboutSectionProps) {
               {/* Photo Frame */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-2 sm:p-3">
                 <ImageWithFallback
-                  src="/src/assets/naz-profile.png"
+                  src={nazProfileImage}
                   alt="Naz - Astroloji ve Spiritüel Koç"
                   className="w-full h-auto rounded-xl sm:rounded-2xl"
                 />
