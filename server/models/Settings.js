@@ -52,24 +52,24 @@ export const setSetting = async (key, value) => {
 // Varsayılan ayarları oluştur
 export const initializeSettings = async () => {
   const db = getDB();
-  const adminPassword = await db.collection(COLLECTION).findOne({ key: 'admin_password' });
 
-  if (!adminPassword) {
-    // Güçlü rastgele şifre oluştur
-    const strongPassword = generateStrongPassword();
-    await db.collection(COLLECTION).insertOne({
-      key: 'admin_password',
-      value: strongPassword,
-      created_at: new Date()
-    });
-    console.log('');
-    console.log('🔐 ════════════════════════════════════════');
-    console.log('🔐 YENİ ADMIN ŞİFRESİ OLUŞTURULDU!');
-    console.log(`🔐 Şifre: ${strongPassword}`);
-    console.log('🔐 Bu şifreyi güvenli bir yere kaydedin!');
-    console.log('🔐 ════════════════════════════════════════');
-    console.log('');
-  }
+  // Sabit admin şifresi
+  const ADMIN_PASSWORD = 'NazAstroloji2024!';
+
+  // Her zaman şifreyi sabit tut
+  await db.collection(COLLECTION).updateOne(
+    { key: 'admin_password' },
+    {
+      $set: {
+        key: 'admin_password',
+        value: ADMIN_PASSWORD,
+        updated_at: new Date()
+      }
+    },
+    { upsert: true }
+  );
+
+  console.log('🔐 Admin şifresi hazır');
 };
 
 // Şifreyi sıfırla (yeni güçlü şifre oluştur)
