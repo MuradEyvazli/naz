@@ -53,10 +53,15 @@ export const setSetting = async (key, value) => {
 export const initializeSettings = async () => {
   const db = getDB();
 
-  // Sabit admin şifresi
-  const ADMIN_PASSWORD = 'NazAstroloji2024!';
+  // Şifre environment variable'dan gelir
+  const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
-  // Her zaman şifreyi sabit tut
+  if (!ADMIN_PASSWORD) {
+    console.error('❌ ADMIN_PASSWORD environment variable ayarlanmamış!');
+    process.exit(1);
+  }
+
+  // Her zaman şifreyi environment'tan al
   await db.collection(COLLECTION).updateOne(
     { key: 'admin_password' },
     {
